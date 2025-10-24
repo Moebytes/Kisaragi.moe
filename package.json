@@ -13,7 +13,7 @@
     "postfix": "node postfix.js",
     "predeploy": "npm run build && npm run waifu",
     "waifu": "cp -r assets/waifu dist/assets/waifu",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist --git \"$(which git)\"",
     "clean": "del-cli ./dist"
   },
   "homepage": "https://kisaragi.moe/",
@@ -64,7 +64,7 @@
     "dotenv-webpack": "^8.0.1",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
-    "gh-pages": "^6.1.1",
+    "gh-pages": "^6.3.0",
     "html-loader": "^5.0.0",
     "html-webpack-plugin": "^5.6.0",
     "less": "^4.2.0",
