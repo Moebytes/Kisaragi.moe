@@ -26,13 +26,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build site
-        run: npm run build
-
-      - name: Copy waifu assets
-        run: npm run waifu
-
-      - name: Deploy to GitHub Pages
+      - name: Configure git identity
+        run: |
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            
+      - name: Deploy site
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: npm run deploy
