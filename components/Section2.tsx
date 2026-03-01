@@ -1,10 +1,16 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Kisaragi - A kawaii discord bot ❤                         *
+ * Copyright © 2026 Moebytes <moebytes.com>                  *
+ * Licensed under CC BY-NC 4.0. See license.txt for details. *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 import React from "react"
 import kisaragiCute from "../assets/images/kisaragicute.png"
 import hammann from "../assets/images/hammann.png"
 import akashiNewYear from "../assets/images/akashinewyear.png"
 import $33 from "../assets/images/33.png"
 import laffeyChibi from "../assets/images/laffeychibi.png"
-import "../styles/section2.less"
+import "./styles/section2.less"
 
 const Section2: React.FunctionComponent = (props) => {
     return (

@@ -1,7 +1,12 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Kisaragi - A kawaii discord bot ❤                         *
+ * Copyright © 2026 Moebytes <moebytes.com>                  *
+ * Licensed under CC BY-NC 4.0. See license.txt for details. *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 import React, {useEffect} from "react"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
-import "../styles/about.less"
 import kisaragiChibi from "../assets/images/kisaragichibi2.png"
 import developer from "../assets/icons/developer.png"
 import discordJS from "../assets/icons/discordjs.png"
@@ -14,6 +19,7 @@ import twitter from "../assets/icons/twitter.png"
 import soundcloud from "../assets/icons/soundcloud.png"
 import pixiv from "../assets/icons/pixiv.png"
 import github from "../assets/icons/github-hover.png"
+import "./styles/about.less"
 
 interface Props {
     reRender: () => void

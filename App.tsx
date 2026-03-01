@@ -1,3 +1,9 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Kisaragi - A kawaii discord bot ❤                         *
+ * Copyright © 2026 Moebytes <moebytes.com>                  *
+ * Licensed under CC BY-NC 4.0. See license.txt for details. *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 import React, {useEffect, useReducer} from "react"
 import {Switch, Route, Redirect} from "react-router-dom"
 import HomePage from "./components/HomePage"

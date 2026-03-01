@@ -1,9 +1,15 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Kisaragi - A kawaii discord bot ❤                         *
+ * Copyright © 2026 Moebytes <moebytes.com>                  *
+ * Licensed under CC BY-NC 4.0. See license.txt for details. *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 import React, {useEffect, useState} from "react"
 import {HashLink as Link} from "react-router-hash-link"
-import "../styles/navbar.less"
 import kisaragiChibi from "../assets/images/kisaragichibi.png"
 import hamburger from "../assets/icons/hamburger.png"
 import $ from "jquery"
+import "./styles/navbar.less"
 
 const Navbar: React.FunctionComponent = (props) => {
     const [featureDropdown, setFeatureDropdown] = useState(false)

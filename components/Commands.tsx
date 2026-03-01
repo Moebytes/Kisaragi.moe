@@ -1,3 +1,9 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Kisaragi - A kawaii discord bot ❤                         *
+ * Copyright © 2026 Moebytes <moebytes.com>                  *
+ * Licensed under CC BY-NC 4.0. See license.txt for details. *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 import React, {useEffect, useState, useReducer} from "react"
 import kisaragiNewYearChibi from "../assets/images/kisaraginewyearchibi.png"
 import searchIcon from "../assets/icons/search-icon.png"
@@ -5,11 +11,11 @@ import showPic from "../assets/icons/show-pic.png"
 import loading from "../assets/icons/loading.gif"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
-import "../styles/commands.less"
 import func from "../structures/Functions"
 import commands from "../json/commands.json"
 import $ from "jquery"
 import reactReplace from "react-string-replace"
+import "./styles/commands.less"
 
 require.context("../assets/labels", true)
 require.context("../assets/help", true)

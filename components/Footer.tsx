@@ -1,3 +1,9 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Kisaragi - A kawaii discord bot ❤                         *
+ * Copyright © 2026 Moebytes <moebytes.com>                  *
+ * Licensed under CC BY-NC 4.0. See license.txt for details. *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 import React, {useEffect, useState} from "react"
 import {HashLink as Link} from "react-router-hash-link"
 import laffeyKimono from "../assets/images/laffeykimono.png"
@@ -6,7 +12,7 @@ import inviteBot from "../assets/icons/invitebot.png"
 import themeImg from "../assets/icons/theme.png"
 import themeInvert from "../assets/icons/theme-invert.png"
 import discord from "../assets/icons/discord.png"
-import "../styles/footer.less"
+import "./styles/footer.less"
 
 interface Props {
     fanart?: boolean

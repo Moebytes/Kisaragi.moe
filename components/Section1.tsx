@@ -1,9 +1,15 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Kisaragi - A kawaii discord bot ❤                         *
+ * Copyright © 2026 Moebytes <moebytes.com>                  *
+ * Licensed under CC BY-NC 4.0. See license.txt for details. *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 import React, {useEffect, useState} from "react"
 import {Link} from "react-router-dom"
 import kisaragi from "../assets/images/kisaragi.png"
-import "../styles/section1.less"
 import func from "../structures/Functions"
 import $ from "jquery"
+import "./styles/section1.less"
 
 const Section1: React.FunctionComponent = (props) => {
     const [chrome, setChrome] = useState(true)
