@@ -8,10 +8,7 @@ import path from "path"
 import mime from "mime"
 import cors from "cors"
 import bodyParser from "body-parser"
-import express, {Request} from "express"
-import webpack from "webpack"
-import middleware from "webpack-dev-middleware"
-import hot from "webpack-hot-middleware"
+import express from "express"
 import config from "./webpack.config"
 import favicon from "express-favicon"
 import dotenv from "dotenv"
@@ -23,25 +20,16 @@ import fs from "fs"
 const __dirname = path.resolve()
 
 const app = express()
-const compiler = webpack(config({platform: "web"}) as any)
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(cors())
 app.disable("x-powered-by")
 app.set("trust proxy", true)
 
-if (process.env.TESTING === "yes") {
-  dotenv.config()
-  app.use(middleware(compiler, {
-    serverSideRender: true,
-    writeToDisk: false
-  }))
-  app.use(hot(compiler))
-}
-
+dotenv.config()
 app.use(express.static(path.join(__dirname, "./public")))
 app.use(express.static(path.join(__dirname, "./assets")))
-app.use(express.static(path.join(__dirname, "./dist"), {index: false}))
+app.use(express.static(path.join(__dirname, "./dist/client"), {index: false}))
 app.use(favicon(__dirname + "/assets/icons/favicon.gif"))
 
 const writePictures = () => {
@@ -67,16 +55,21 @@ const writePictures = () => {
 
 writePictures()
 
-app.get("*", function(req, res) {
+app.get("/{*page}", function(req, res) {
   res.setHeader("Content-Type", mime.getType(req.path) ?? "")
   if (process.env.TESTING === "yes") {
-    res.sendFile(path.join(__dirname, "./dist/index.html"))
+    res.sendFile(path.join(__dirname, "./dist/client/index.html"))
   } else {
     const html = ReactDOMServer.renderToString(<Router location={req.url}><App/></Router>)
-    const data = fs.readFileSync(path.join(__dirname, "./dist/index.html"), {encoding: "utf-8"})
+    const data = fs.readFileSync(path.join(__dirname, "./dist/client/index.html"), {encoding: "utf-8"})
     const document = data.replace(`<div id="app"></div>`, `<div id="app">${html}</div>`)
     res.send(document)
   }
 })
 
-app.listen(process.env.PORT || 8090, () => console.log("Started the website server!"))
+const start = () => {
+  let port = process.env.PORT || 8090
+  app.listen(port, () => console.log(`Started the website server! http://localhost:${port}`))
+}
+
+start()

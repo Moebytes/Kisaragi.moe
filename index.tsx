@@ -7,8 +7,8 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
+import {createRoot} from "react-dom/client"
 import {BrowserRouter as Router} from "react-router-dom"
-import images from "./structures/Images"
 
-// images.animateFavicon()
-ReactDOM.render(<Router><App/></Router>, document.getElementById("app"))
+const rootElement = document.getElementById("app")!
+createRoot(rootElement).render(<Router><App/></Router>)

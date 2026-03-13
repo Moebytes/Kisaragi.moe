@@ -13,12 +13,13 @@ import Navbar from "./Navbar"
 import Footer from "./Footer"
 import func from "../structures/Functions"
 import commands from "../json/commands.json"
-import $ from "jquery"
+let $: typeof import("jquery")
 import reactReplace from "react-string-replace"
 import "./styles/commands.less"
 
-require.context("../assets/labels", true)
-require.context("../assets/help", true)
+if (typeof window !== "undefined") {
+  $ = require("jquery")
+}
 
 interface Command {
     command: string
@@ -149,7 +150,7 @@ const Commands: React.FunctionComponent<Props> = (props) => {
 
     const generateRows = (columns: number) => {
         const iterations = func.perfectDivision(categories.length, columns)
-        const rawJSX: any = []
+        const rawJSX = [] as React.ReactElement[]
         for (let i = 0; i < iterations; i++) {
             if (!categories[i]) {
                 rawJSX.push(<img src={`assets/labels/${categories[categories.length - 1].replace(/ +/g, "")}.png`} width="157" height="46" className={`category ${categories[categories.length - 1].replace(/ +/g, "")}`} style={{visibility: "hidden"}} key={categories[i]}/>)
@@ -158,7 +159,7 @@ const Commands: React.FunctionComponent<Props> = (props) => {
             }
         }
         const jsxArrays = func.splitArray(rawJSX, columns)
-        const jsx: any = []
+        const jsx = [] as React.ReactElement[]
         for (let i = 0; i < jsxArrays.length; i++) {
             jsx.push(<div className="category-row">{jsxArrays[i].map((a) => a)}</div>)
         }

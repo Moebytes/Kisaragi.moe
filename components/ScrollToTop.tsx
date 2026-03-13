@@ -4,20 +4,17 @@
  * Licensed under CC BY-NC 4.0. See license.txt for details. *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import React, {useEffect, Fragment} from "react"
-import {withRouter} from "react-router-dom"
+import React, {useEffect} from "react"
+import {useLocation} from "react-router-dom"
 
-const ScrollToTop = ({history, children}) => {
+const ScrollToTop = ({children}) => {
+  const {pathname} = useLocation()
+  
   useEffect(() => {
-    const unlisten = history.listen(() => {
-      window.scrollTo(0, 0)
-    })
-    return () => {
-      unlisten()
-    }
-  }, [])
+    window.scrollTo(0, 0)
+  }, [pathname])
 
-  return <Fragment>{children}</Fragment>
+  return <>{children}</>
 }
 
-export default withRouter(ScrollToTop as any)
+export default ScrollToTop

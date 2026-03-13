@@ -5,13 +5,17 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import {RefObject} from "react"
-import $ from "jquery"
+let $: typeof import("jquery")
 
 let newScrollY = 0
 let lastScrollTop = 0
 let element = null as any
 let inertia = false
 let mouseDown = false
+
+if (typeof window !== "undefined") {
+  $ = require("jquery")
+}
 
 export default class Functions {
   /** Promise SetTimeout */
@@ -61,18 +65,22 @@ export default class Functions {
 
   /** Animate details and summary */
   public static animateSummary = (element: any) => {
+    const details = $(element).parent("details")
     const wrapper = $(element).nextAll().wrapAll("<div></div>").parent()
-    if (!$(element).parent("details").attr("open")) wrapper.hide()
+
+    if (!details.prop("open")) wrapper.hide()
+
     $(element).on("click", (event) => {
-       event.preventDefault()
-       if ($(element).parent("details").attr("open")) {
-          wrapper.slideUp(() => {
-             $(element).parent("details").removeAttr("open")
-          })
-       } else {
-          $(element).parent("details").attr("open", "")
-          wrapper.slideDown()
-       }
+      event.preventDefault()
+
+      if (details.prop("open")) {
+        wrapper.slideUp(() => {
+          details.prop("open", false)
+        })
+      } else {
+        details.prop("open", true)
+        wrapper.slideDown()
+      }
     })
   }
 

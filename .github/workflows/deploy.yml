@@ -41,4 +41,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
-          npx gh-pages -d dist -r https://x-access-token:${GITHUB_TOKEN}@github.com/${{github.repository}}.git
+          npx gh-pages -d dist/client -r https://x-access-token:${GITHUB_TOKEN}@github.com/${{github.repository}}.git

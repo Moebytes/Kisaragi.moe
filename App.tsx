@@ -5,7 +5,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import React, {useEffect, useReducer} from "react"
-import {Switch, Route, Redirect} from "react-router-dom"
+import {Routes, Route, Navigate} from "react-router-dom"
 import HomePage from "./components/HomePage"
 import Commands from "./components/Commands"
 import TermsOfService from "./components/TermsOfService"
@@ -14,11 +14,6 @@ import About from "./components/About"
 import ScrollToTop from "./components/ScrollToTop"
 import "./index.less"
 import functions from "./structures/Functions"
-
-require.context("./assets/icons", true)
-require.context("./assets/banners", true)
-require.context("./assets/embed", true)
-require.context("./assets/images", true)
 
 const App: React.FunctionComponent = () => {
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0)
@@ -46,14 +41,16 @@ const App: React.FunctionComponent = () => {
     return (
       <div className={theme === "dark" ? "app dark-theme" : "app"} onTouchStart={() => ""}>
           <ScrollToTop>
-            <Switch>
-              <Route exact path={["/", "/home", "/index", "/index.html", "/kisaragi"]}><HomePage reRender={reRender}/></Route>
-              <Route exact path={["/commands", "/commands.html"]}><Commands reRender={reRender}/></Route>
-              <Route exact path={["/privacy", "/privacypolicy"]}><Redirect to="/terms#privacy"/></Route>
-              <Route exact path={["/terms", "/termsofservice"]}><TermsOfService reRender={reRender}/></Route>
-              <Route exact path={["/about", "/about.html"]}><About reRender={reRender}/></Route>
-              <Route path="*"><$404 reRender={reRender}/></Route>
-            </Switch>
+            <Routes>
+              <Route path="/" element={<HomePage reRender={reRender}/>}/>
+              <Route path="/home" element={<HomePage reRender={reRender}/>}/>
+              <Route path="/kisaragi" element={<HomePage reRender={reRender}/>}/>
+              <Route path="/commands" element={<Commands reRender={reRender}/>}/>
+              <Route path="/privacy" element={<Navigate to="/terms#privacy" replace/>}/>
+              <Route path="/terms" element={<TermsOfService reRender={reRender}/>}/>
+              <Route path="/about" element={<About reRender={reRender}/>}/>
+              <Route path="*" element={<$404 reRender={reRender} />}/>
+            </Routes>
           </ScrollToTop>
       </div>
     )

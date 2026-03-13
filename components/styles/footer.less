@@ -146,7 +146,26 @@
     }
 }
 
-@media screen and (max-width: 20rem) {
+
+.copyright {
+    font-size: 1.2vw;
+    text-align: center;
+    padding-bottom: 0.5vw;
+}
+
+.footer-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.footer-logo {
+    height: 130px;
+    width: auto;
+}
+
+@media screen and (max-width: 37.5rem) {
     .fanart-links li, .footer-li {
         margin-top: -2vw;
     }
@@ -162,10 +181,8 @@
     .fanart-header {
         font-size: calc(10px + 2.5vw);
     }
-}
 
-.copyright {
-    font-size: 1.2vw;
-    text-align: center;
-    padding-bottom: 0.5vw;
+    .footer-logo {
+        height: 50px;
+    }
 }

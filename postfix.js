@@ -1,6 +1,3 @@
 const fs = require("fs")
 
-fs.copyFileSync("./assets/icons/bluearrow.png", "./dist/bluearrow.png")
-fs.copyFileSync("./assets/icons/redarrow.png", "./dist/redarrow.png")
-fs.copyFileSync("./assets/icons/star.gif", "./dist/star.gif")
-fs.copyFileSync("./404.html", "./dist/404.html")
+fs.copyFileSync("./404.html", "./dist/client/404.html")
