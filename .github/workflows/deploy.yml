@@ -29,9 +29,6 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Copy waifu assets
-        run: npm run waifu
-
       - name: Configure git identity
         run: |
           git config --global user.name "github-actions[bot]"
