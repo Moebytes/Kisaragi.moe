@@ -614,7 +614,7 @@ html, body {
 
 .footer-logo {
   width: auto;
-  height: 130px;
+  height: 90px;
 }
 
 @media screen and (max-width: 37.5rem) {
@@ -635,7 +635,7 @@ html, body {
   }
 
   .footer-logo {
-    height: 50px;
+    height: 40px;
   }
 }
 
