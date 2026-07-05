@@ -8,6 +8,7 @@ import React, {useEffect} from "react"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import kisaragiChibi from "../assets/images/kisaragichibi2.png"
+import moebytes from "../assets/icons/moebytes.png"
 import discordJS from "../assets/icons/discordjs.png"
 import nodeJS from "../assets/icons/nodejs.png"
 import typescript from "../assets/icons/typescript.png"
@@ -39,11 +40,12 @@ const About: React.FunctionComponent<Props> = (props) => {
                 <img src={kisaragiChibi} width="150" height="150" className="about-img"/>
             </div>
             <ul className="about-ul">
+                <li className="about-list"><span>Creator: Moebytes</span> <img src={moebytes} width="30" height="30"/></li>
                 <li className="about-list"><span>Library: Discord.js</span> <img src={discordJS} width="30" height="30"/></li>
                 <li className="about-list"><span>Runtime: Node.js</span> <img src={nodeJS} width="30" height="30"/></li>
                 <li className="about-list"><span>Language: Typescript</span> <img src={typescript} width="30" height="30"/></li>
                 <li className="about-list"><span>Database: PostgreSQL</span> <img src={postgreSQL} width="30" height="30"/></li>
-                <li className="about-list"><span>Website: React.js</span> <img src={react} width="30" height="30"/></li>
+                <li className="about-list"><span>Website: React</span> <img src={react} width="30" height="30"/></li>
             </ul>
         </section>
         <Footer reRender={props.reRender}/>
