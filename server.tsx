@@ -30,7 +30,7 @@ dotenv.config()
 app.use(express.static(path.join(__dirname, "./public")))
 app.use(express.static(path.join(__dirname, "./assets")))
 app.use(express.static(path.join(__dirname, "./dist/client"), {index: false}))
-app.use(favicon(__dirname + "/assets/icons/favicon.gif"))
+app.use(favicon(__dirname + "/assets/icons/favicon.png"))
 
 const writePictures = () => {
   const indexImages: string[] = []

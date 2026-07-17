@@ -5,13 +5,13 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import func from "./Functions"
-import "../assets/icons/icon.gif"
+import "../assets/icons/favicon.gif"
 
 export default class Images {
     public static animateFavicon = () => {
         const {Firefox} = func.getBrowser()
         if (Firefox) return
-        const favURL = `${window.location.protocol}//${window.location.host}/icons/icon.gif`
+        const favURL = `${window.location.protocol}//${window.location.host}/icons/favicon.gif`
         console.log(favURL)
         // @ts-ignore Included in script file
         favloader.init({gif: favURL})
@@ -22,7 +22,7 @@ export default class Images {
     public static appendFavicon = () => {
         const link = document.createElement("link")
         link.rel = "icon"
-        link.href =  `${window.location.protocol}//${window.location.host}/icons/icon.gif`
+        link.href =  `${window.location.protocol}//${window.location.host}/icons/favicon.gif`
         document.head.appendChild(link)
     }
 }

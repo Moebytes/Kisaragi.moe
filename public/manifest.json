@@ -4,7 +4,7 @@
     "description": "Kisaragi is an anime discord bot with a lot of features! She can search websites, play music, edit images, moderate your server, and offer various utilities for your server.",
     "icons": [
       {
-        "src": "assets/icons/favicon.gif",
+        "src": "assets/icons/favicon.png",
         "sizes": "128x128",
         "type": "image/gif"
       }

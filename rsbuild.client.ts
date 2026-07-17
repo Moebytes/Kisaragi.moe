@@ -35,7 +35,7 @@ export default defineConfig({
     },
     html: {
         template: "./index.html",
-        favicon: "./assets/icons/favicon.gif"
+        favicon: "./assets/icons/favicon.png"
     },
     output: {
         target: "web",
